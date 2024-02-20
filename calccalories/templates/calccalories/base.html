@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        {% comment %} body{background-color: #DEF2F1;} {% endcomment %}
+    </style>
+</head>
+<body>
+    <a href="{% url 'calccalories:index'%}">CalcCalories</a>-
+    <a href="{% url 'calccalories:foods'%}">Foods</a>-
+    <a href="{% url 'calccalories:exercises'%}">Exercises</a>
+    {%block content%}{%endblock%}
+</body>
+</html>

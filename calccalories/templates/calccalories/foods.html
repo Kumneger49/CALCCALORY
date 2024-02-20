@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foods Page</title>
+</head>
+<body>
+    {%extends 'calccalories/base.html'%}
+    {%block content%}
+    <h1>Lists of foods:</h1>
+    <ul>
+        {%for food in foods%}
+            <li><h3>{{food}}</h3></li>
+        {%empty%}
+        <h2>First you gotta add some food lists</h2>
+        {%endfor%}
+    </ul>
+    {%endblock%}
+</body>
+</html>
