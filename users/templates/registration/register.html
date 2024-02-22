@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+</head>
+<body>
+    {%extends "CalcCalories/base.html" %}
+    {%block content%}
+    {% if form.errors %}
+    <p>Your username and password did not match. please try again</p>
+{% endif %}
+    <form action="{% url 'users:register' %}" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button name="submit">Register</button>
+        <input type="hidden" name="next" value="{% url 'calccalories:index' %}" />
+    </form>
+    {%endblock%}
+</body>
+</html>

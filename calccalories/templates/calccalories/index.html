@@ -8,8 +8,12 @@
 <body>
     {%extends "CalcCalories/base.html" %}
     {%block content%}
+    {%if request.user.is_authenticated%}
+    <h1>Welcome back {{request.user.username}}!</h1>
+    {%else%}
     <h1>Welcome to CalcCalories!</h1>
     <h2>This is CalcCalorie where you can calculate your daily calorie intake and calorie burn.</h2>
+    {%endif%}
     {%endblock%}
 </body>
 </html>

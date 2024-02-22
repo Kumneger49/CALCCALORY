@@ -11,7 +11,7 @@ class Person(models.Model):
 
 class Food(models.Model):
     person=models.ForeignKey(Person, on_delete=models.CASCADE)
-    name=models.TextField(max_length=50)
+    name=models.CharField(max_length=50)
     calory=models.IntegerField(default=0)
     
     def __str__(self):

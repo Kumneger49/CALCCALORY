@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    {%extends "CalcCalories/base.html" %}
+    {%block content%}
+    {%if form.errors%}
+    <h2>Your name and password could not match with anyone in the database</h2>
+    {%endif%}
+    <form action="{% url 'users:login' %}" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button name="submit">Log in</button>
+    </form>
+    {%endblock%}
+</body>
+</html>
