@@ -8,13 +8,14 @@
 <body>
     {%extends 'calccalories/base.html'%}
     {%block content%}
-    <h1>Lists of foods:</h1>
+    <h1>This is the list of foods for you for now, which meal have you eaten today?</h1>
     <ul>
         {%for food in foods%}
-            <li><h3>{{food}}</h3></li>
+            <li><a href="{% url 'calccalories:food' food.id %}"><span>{{food}}-       {{food.calory}}calories/one unit</span></a></li>
         {%empty%}
         <h2>First you gotta add some food lists</h2>
         {%endfor%}
+        <a href="{% url 'calccalories:exercises'  %}">Exercises</a>
     </ul>
     {%endblock%}
 </body>

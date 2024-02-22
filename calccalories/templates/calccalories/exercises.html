@@ -8,13 +8,15 @@
 <body>
     {%extends "calccalories/base.html"%}
     {%block content%}
-    <h1>Lists of exercises</h1>
+    <h1>This is the list of exercises for you. In which one of them have you managed to engage today?</h1>
     <ul>
         {%for exercise in exercises%}
-            <li><h3>{{exercise}}</h3></li>
-        {%empty%}
-        <h2>First you gotta add some food lists</h2>
+            <li><a href="{% url 'calccalories:exercise' exercise.id%}"><span>{{exercise}}-    {{exercise.calory}}calories/minute</span></a></li>
+            {%empty%}
+                <h2>First you gotta add some food lists</h2>
         {%endfor%}
+         <a href="{% url 'calccalories:report'  %}">submit</a>
+          
     </ul>
     {%endblock%}
 </body>

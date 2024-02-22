@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #my apps
     'calccalories',
+    'users',
     
     #django defalut apps
     'django.contrib.admin',

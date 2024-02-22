@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Food Page</title>
 </head>
 <body>
     {%extends "CalcCalories/base.html" %}
     {%block content%}
-    <h1>Welcome to CalcCalories!</h1>
-    <h2>This is CalcCalorie where you can calculate your daily calorie intake and calorie burn.</h2>
+    <h1>How many {{exercise}}?</h1>
+    <form action="{% url 'calccalories:food' food.id %}" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button name="submit">Done</button>
+    </form>
     {%endblock%}
 </body>
 </html>
