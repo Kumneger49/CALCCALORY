@@ -12,6 +12,8 @@
     <ul>
         {%for food in foods%}
             <li><a href="{% url 'calccalories:food' food.id %}"><span>{{food}}-       {{food.calory}}calories/one unit</span></a></li>
+            <a href="{% url 'calccalories:edit_food' food.id %}">Edit food</a><br>
+            <a href="{% url 'calccalories:delete_food' food.id%}">Delete food from the list</a><br><br><br>
         {%empty%}
         <h2>First you gotta add some food lists</h2>
         {%endfor%}

@@ -3,6 +3,9 @@ from .models import Exercise, Food
 
 class ExerciseForm(forms.Form):
     minutes=forms.IntegerField()
+    
+class FoodForm(forms.Form):
+    Units=forms.IntegerField()
    
 class NewFoodForm(forms.ModelForm):
     class Meta:

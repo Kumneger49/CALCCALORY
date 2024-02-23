@@ -12,8 +12,9 @@
 <body>
     <a href="{% url 'calccalories:index'%}">CalcCalories</a>-
     <a href="{% url 'calccalories:foods'%}">Foods</a>-
-    <a href="{% url 'calccalories:exercises'%}">Exercises</a>
+    <a href="{% url 'calccalories:exercises'%}">Exercises</a>-
     {%if user.is_authenticated%}
+    Hello {{request.user}}
     <hr>
     <form action="{% url 'users:logout'%}" method="post">
         {%csrf_token%}
