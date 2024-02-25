@@ -13,7 +13,11 @@ class Food(models.Model):
     person=models.ForeignKey(User, on_delete=models.CASCADE)
     name=models.CharField(max_length=50)
     calory=models.IntegerField(default=0)
+    delete_food=models.BooleanField(default=False)
     
+    # class Meta:
+    #     ordering=['calory']
+        
     def __str__(self):
         return self.name
     
@@ -21,6 +25,10 @@ class Exercise(models.Model):
     person=models.ForeignKey(User, on_delete=models.CASCADE)
     name=models.CharField(max_length=50)
     calory=models.IntegerField(default=0)
+    delete_exercise=models.BooleanField(default=False)
+    
+    # class Meta:
+    #     ordering=['calory']
     
     def __str__(self):
         return self.name

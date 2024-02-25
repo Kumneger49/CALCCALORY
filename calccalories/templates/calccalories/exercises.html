@@ -13,7 +13,13 @@
         {%for exercise in exercises%}
             <li><a href="{% url 'calccalories:exercise' exercise.id%}"><span>{{exercise}}-    {{exercise.calory}}calories/minute</span></a></li>
             <a href="{% url 'calccalories:edit_exercise' exercise.id %}">Edit exercise</a><br>
-            <a href="{% url 'calccalories:delete_exercise' exercise.id %}">Delete exercise from the list</a><br><br><br>
+            <a href="{% url 'calccalories:check_delete_exercise' exercise.id %}">Delete exercise from the list</a>
+            {%if exercise.delete_exercise%}
+            <h3>Are you sure you want to delete {{exercise.name}} from your exercise list?</a>
+            <a href="{% url 'calccalories:delete_exercise' exercise.id%}">Yes</a>
+            <a href="{% url 'calccalories:do_not_delete_exercise' exercise.id%}">Cancel</a>
+            {%endif%}
+            <br><br><br>
             {%empty%}
                 <h2>First you gotta add some food lists</h2>
         {%endfor%}

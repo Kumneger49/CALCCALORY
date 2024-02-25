@@ -13,13 +13,20 @@
         {%for food in foods%}
             <li><a href="{% url 'calccalories:food' food.id %}"><span>{{food}}-       {{food.calory}}calories/one unit</span></a></li>
             <a href="{% url 'calccalories:edit_food' food.id %}">Edit food</a><br>
-            <a href="{% url 'calccalories:delete_food' food.id%}">Delete food from the list</a><br><br><br>
+            <a href="{% url 'calccalories:check_delete_food' food.id%}">Delete food from the list</a>
+            {%if food.delete_food%}
+            <h3>Are you sure you want to delete {{food.name}} from your food list?</a>
+            <a href="{% url 'calccalories:delete_food' food.id%}">Yes</a>
+            <a href="{% url 'calccalories:do_not_delete_food' food.id%}">Cancel</a>
+            {%endif%}
+            <br><br><br>
         {%empty%}
         <h2>First you gotta add some food lists</h2>
         {%endfor%}
         <h1>If you do not see the food you ate today and if you know the calory value per unit for it, you can add it in the list</h1>
         <a href="{% url 'calccalories:new_food'%}">Add new food</a><br><br>
-        <a href="{% url 'calccalories:exercises'  %}">Exercises</a>
+        <a href="{% url 'calccalories:exercises'  %}">Exercises</a><br><br>
+        <a href="{% url 'calccalories:report'  %}">Calculate</a>
     </ul>
     {%endblock%}
 </body>
