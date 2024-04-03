@@ -8,7 +8,7 @@
 <body>
     {%extends "CalcCalories/base.html" %}
     {%block content%}
-    <form action="{% url 'calccalories:edit_exercise' exercise.id%}" method="post">
+    <form class="header" action="{% url 'calccalories:edit_exercise' exercise.id%}" method="post">
         {%csrf_token%}
         {{form.as_p}}
         <button name="submit">Done</button>

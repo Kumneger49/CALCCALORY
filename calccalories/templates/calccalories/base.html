@@ -5,25 +5,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-         
-        span{ font-size: 30px}
+         body{
+            background-color: cornsilk;
+            background-color: #dadbf1;
+            list-style-position: inside;
+            margin: 0;
+            font-family: Helvetica;
+        }
+
+        .landing_page_text{
+            position: absolute;
+            left: 400px;
+            top: 200px;
+        }
+
+        .welcome{
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+        }
+
+        .app_description{
+            margin-bottom: 40px;
+        }
+
+        .content{
+            padding: 0 0 0 10px;
+        }
+
+         nav{
+            background-color: bisque;
+            padding: 5px;
+            height: 30px;
+            font: 550 1.2rem arial, sans-sarif;
+            position: fixed;
+            width: 100%;
+            top: 0;
+         }
+
+        .main{
+            margin-left: 400px;
+        }
+
+        .item{
+            padding: 1px 6px 1px 3px;;
+        }
+
+         .left_align{
+            width: 300px;
+            float: left;
+         }
+
+        .logout{
+            display: inline;
+            margin-left: 3px;
+            background-color: bisque;
+            border-radius: 4px;
+            cursor: pointer;
+         }
+
+        .name{
+            font-size: 2.2rem;
+            text-transform: capitalize;
+        }
+
+         .name1{
+            text-transform: capitalize;
+         }
+
+         .right_align{
+            width: 250px;
+            float: right;
+         }
+
+         .nav_left_item{
+            margin-right: 7px;
+         }
+
+         a{
+            text-decoration: none;
+            color: brown;
+         }
+
+        .header{
+            margin-top: 50px;
+        }
+
+        button:hover{
+            background-color: goldenrod;
+         }
+
+         span{
+            font-size: 1.5rem;
+         }
+
+        button{
+            display: block;
+            margin-bottom: 10px;
+            border-width: 0.125rem;
+            border-radius: 5px;
+            padding: 2px;
+         }
+
+         .delete,
+         .edit{
+            display: inline;
+         }
+
+        .yes:hover,
+        .cancel:hover{
+            background-color: burlywood;
+        }
+
+         .add_question{
+            margin-top: 0;
+            font-size: 1.5rem;
+         }
+
+        .binding{
+            position: relative;
+        }
+
+         .calculate{
+            font: 550 1.2rem arial, sans-sarif;
+            background-color: greenyellow;
+            width: 120px;
+            height: 40px;
+            border-radius: 4px;
+            position: absolute;
+            top: 37%;
+            left: 50%;
+         }
+
+         .calculate:hover{
+            cursor: pointer;
+         }
+
+         .sign_up{
+            margin-left: 20px;
+         }
+
+         .index_login{
+            font: 550 1.2rem arial, sans-sarif;
+            background-color: bisque;
+            width: 120px;
+            height: 40px;
+            border-radius: 8px;
+            padding: 15px;
+            margin-right: 30px;
+            margin-top: 95px;
+         }{% comment %} this is for the login button in the index.html{% endcomment %}
+
+         .index_login:hover{
+            background-color: greenyellow;
+         }
+
+         .index_signup{
+            font: 550 1.2rem arial, sans-sarif;
+            background-color: bisque;
+            width: 120px;
+            height: 40px;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+         }{% comment %} this is for the login button in the index.html{% endcomment %}
+
+         .index_signup:hover{
+            background-color: greenyellow;
+         }
+
     </style>
 </head>
 <body>
-    <a href="{% url 'calccalories:index'%}">CalcCalories</a>-
-    <a href="{% url 'calccalories:foods'%}">Foods</a>-
-    <a href="{% url 'calccalories:exercises'%}">Exercises</a>-
+    <nav>
+    <div class="left_align">
+    <a class="nav_left_item" href="{% url 'calccalories:index'%}">CalcCalories</a>
+    <a class="nav_left_item" href="{% url 'calccalories:foods'%}">Foods</a>
+    <a class="nav_left_item" href="{% url 'calccalories:exercises'%}">Exercises</a>
+    </div>
+    <div class="right_align">
     {%if user.is_authenticated%}
-    Hello {{request.user}}
-    <hr>
-    <form action="{% url 'users:logout'%}" method="post">
+    Hello <span class="name1">{{request.user}}</span>
+    <form class="logout" action="{% url 'users:logout'%}" method="post">
         {%csrf_token%}
-        <button name="submit">Logout</button>
+        <button class="logout" name="submit">Logout</button>
     </form>
     {%else%}
-        <a href="{% url 'users:login'%}">Log in</a>-
-        <a href="{% url 'users:register'%}">Register</a>
+        <a href="{% url 'users:login'%}">Log in</a>
+        <a class="sign_up" href="{% url 'users:register'%}">Sign up</a>
     {%endif%}
+</div>
+</nav>
+<div class="content">
     {%block content%}{%endblock%}
+</div>
 </body>
 </html>

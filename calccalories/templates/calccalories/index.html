@@ -9,10 +9,14 @@
     {%extends "CalcCalories/base.html" %}
     {%block content%}
     {%if request.user.is_authenticated%}
-    <h1>Welcome back {{request.user.username}}!</h1>
+    <h1 class="header landing_page_text">Welcome back <span class="name">{{request.user.username}}!</span></h1>
     {%else%}
-    <h1>Welcome to CalcCalories!</h1>
-    <h2>This is CalcCalorie where you can calculate your daily calorie intake and calorie burn.</h2>
+    <div class="landing_page_text">
+    <h1 class="welcome">Welcome to CalcCalories!</h1>
+    <h2 class="app_description" >This is CalcCalorie where you can calculate your daily calorie intake and calorie burn.</h2>
+    <a class="index_login" href="{% url 'users:login'%}">Log in</a>
+    <a class="index_signup" href="{% url 'users:register'%}">Sign up</a>
+    </div>
     {%endif%}
     {%endblock%}
 </body>
